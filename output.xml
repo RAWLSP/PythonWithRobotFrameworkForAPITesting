@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-01-10T12:50:10.098220" rpa="false" schemaversion="5">
+<suite id="s1" name="Marvels" source="C:\Users\lingraj.patil\PycharmProjects\PythonProject\Marvels">
+<suite id="s1-s1" name="TestCases" source="C:\Users\lingraj.patil\PycharmProjects\PythonProject\Marvels\TestCases">
+<suite id="s1-s1-s1" name="TC 03" source="C:\Users\lingraj.patil\PycharmProjects\PythonProject\Marvels\TestCases\TC_03.robot">
+<test id="s1-s1-s1-t1" name="Test API Using Keywords" line="9">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-01-10T12:50:10.571498" level="INFO">${payload} = {'name': 'Test', 'job': 'leader'}</msg>
+<var>${payload}</var>
+<arg>name</arg>
+<arg>Test</arg>
+<arg>job</arg>
+<arg>leader</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-01-10T12:50:10.570572" elapsed="0.000955"/>
+</kw>
+<kw name="Create Session" owner="postRequest">
+<arg>${BASE_URL}</arg>
+<doc>Creates a session with the base URL.</doc>
+<status status="PASS" start="2025-01-10T12:50:10.572039" elapsed="0.000285"/>
+</kw>
+<kw name="Send Post Request" owner="postRequest">
+<msg time="2025-01-10T12:50:10.925234" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>/api/users</arg>
+<arg>${payload}</arg>
+<doc>Send POST request with payload.</doc>
+<status status="PASS" start="2025-01-10T12:50:10.572672" elapsed="0.352614"/>
+</kw>
+<kw name="Get Status Code" owner="postRequest">
+<msg time="2025-01-10T12:50:10.926140" level="INFO">${status_code} = 201</msg>
+<var>${status_code}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2025-01-10T12:50:10.925919" elapsed="0.000245"/>
+</kw>
+<kw name="Get Created Id" owner="postRequest">
+<msg time="2025-01-10T12:50:10.926827" level="INFO">${id} = 900</msg>
+<var>${id}</var>
+<arg>${response}</arg>
+<doc>Extract ID of created record from response.</doc>
+<status status="PASS" start="2025-01-10T12:50:10.926601" elapsed="0.000251"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-10T12:50:10.927226" elapsed="0.000427"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-10T12:50:10.928315" elapsed="0.000747"/>
+</kw>
+<kw name="Get Request" owner="postRequest">
+<msg time="2025-01-10T12:50:11.205034" level="INFO">UrL, https://reqres.in/api/users/900</msg>
+<msg time="2025-01-10T12:50:11.205267" level="INFO">${response_1} = &lt;Response [404]&gt;</msg>
+<var>${response_1}</var>
+<arg>/api/users/${id}</arg>
+<status status="PASS" start="2025-01-10T12:50:10.929771" elapsed="0.275543"/>
+</kw>
+<kw name="Get Status Code" owner="postRequest">
+<msg time="2025-01-10T12:50:11.206607" level="INFO">${status_code} = 404</msg>
+<var>${status_code}</var>
+<arg>${response_1}</arg>
+<status status="PASS" start="2025-01-10T12:50:11.206342" elapsed="0.000310"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-10T12:50:11.208582" level="INFO">Status Code: 404</msg>
+<arg>Status Code: ${status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-10T12:50:11.208305" elapsed="0.000343"/>
+</kw>
+<kw name="Get Response Content" owner="postRequest">
+<msg time="2025-01-10T12:50:11.209927" level="INFO">${content} = {}</msg>
+<var>${content}</var>
+<arg>${response_1}</arg>
+<doc>Returns the content of the response.</doc>
+<status status="PASS" start="2025-01-10T12:50:11.209638" elapsed="0.000323"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-10T12:50:11.211035" level="INFO">Response Content: {}</msg>
+<arg>Response Content: ${content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-10T12:50:11.210820" elapsed="0.000267"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-01-10T12:50:11.212227" level="FAIL">404 != 201</msg>
+<arg>${status_code}</arg>
+<arg>201</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-01-10T12:50:11.211917" elapsed="0.000484">404 != 201</status>
+</kw>
+<doc>Validate API Response Using Python Keywords</doc>
+<status status="FAIL" start="2025-01-10T12:50:10.569399" elapsed="0.643940">404 != 201</status>
+</test>
+<status status="FAIL" start="2025-01-10T12:50:10.132536" elapsed="1.082564"/>
+</suite>
+<status status="FAIL" start="2025-01-10T12:50:10.131463" elapsed="1.085302"/>
+</suite>
+<status status="FAIL" start="2025-01-10T12:50:10.099758" elapsed="1.118973"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Marvels">Marvels</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="TestCases">Marvels.TestCases</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="TC 03">Marvels.TestCases.TC 03</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
